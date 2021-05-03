@@ -11,7 +11,7 @@ export const createVillage = async (scene, shadowGenerator) => {
 }
 
 export const clreateLights = async (scene) => {
-    await BABYLON.SceneLoader.ImportMeshAsync("", "/assets/", "lamp.babylon")
+    await BABYLON.SceneLoader.ImportMeshAsync("", "assets/", "lamp.babylon")
     
     const lampLight = new BABYLON.SpotLight("lampLight", BABYLON.Vector3.Zero(), new BABYLON.Vector3(0, -1, 0), 0.8 * Math.PI, 0.01, scene);
     lampLight.diffuse = BABYLON.Color3.Yellow();
@@ -66,7 +66,7 @@ export const createFountain = (scene) => {
 }
 
 export const createTrees = () => {
-    const spriteManagerTrees = new BABYLON.SpriteManager("treesManager", "/assets/palm.png", 2000, { width: 512, height: 1024 });
+    const spriteManagerTrees = new BABYLON.SpriteManager("treesManager", "assets/palm.png", 2000, { width: 512, height: 1024 });
 
     //We create trees at random positions
     for (let i = 0; i < 500; i++) {
@@ -88,7 +88,7 @@ export const createSkyBox = () => {
     //Skybox
     const skyboxMaterial = new BABYLON.StandardMaterial("skyBox");
     skyboxMaterial.backFaceCulling = false;
-    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("/assets/skybox/skybox");
+    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("assets/skybox/skybox");
     skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
     skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
     skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
@@ -100,7 +100,7 @@ export const createSkyBox = () => {
 }
 
 export const loadValleyVilage = async (scene, shadowGenerator) => {
-    await BABYLON.SceneLoader.ImportMeshAsync("", "/assets/", "valleyvillage.glb");
+    await BABYLON.SceneLoader.ImportMeshAsync("", "assets/", "valleyvillage.glb");
     
     const ground = scene.getMeshByName("ground");
     ground.material.maxSimultaneousLights = 5;
@@ -118,7 +118,7 @@ export const loadValleyVilage = async (scene, shadowGenerator) => {
 export const createTexturedGround = () => {
     //Create Village ground
     const groundMat = new BABYLON.StandardMaterial("groundMat");
-    groundMat.diffuseTexture = new BABYLON.Texture("/assets/villagegreen.png");
+    groundMat.diffuseTexture = new BABYLON.Texture("assets/villagegreen.png");
     groundMat.diffuseTexture.hasAlpha = true;
 
     const ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 24, height: 24 });
@@ -126,15 +126,15 @@ export const createTexturedGround = () => {
 
     //large ground
     const largeGroundMat = new BABYLON.StandardMaterial("largeGroundMat");
-    largeGroundMat.diffuseTexture = new BABYLON.Texture("/assets/valleygrass.png");
+    largeGroundMat.diffuseTexture = new BABYLON.Texture("assets/valleygrass.png");
 
-    const largeGround = BABYLON.MeshBuilder.CreateGroundFromHeightMap("largeGround", "/assets/villageheightmap.png", { width: 150, height: 150, subdivisions: 20, minHeight: 0, maxHeight: 10 });
+    const largeGround = BABYLON.MeshBuilder.CreateGroundFromHeightMap("largeGround", "assets/villageheightmap.png", { width: 150, height: 150, subdivisions: 20, minHeight: 0, maxHeight: 10 });
     largeGround.material = largeGroundMat;
     largeGround.position.y = -0.01;
 }
 
 export const loadSampleVillage = () => {
-    BABYLON.SceneLoader.ImportMeshAsync("", "/assets/", "village.glb");
+    BABYLON.SceneLoader.ImportMeshAsync("", "assets/", "village.glb");
 }
 
 export const buildDwellings = () => {
@@ -208,7 +208,7 @@ const buildBox = (width) => {
     // texture
     const boxMat = new BABYLON.StandardMaterial("boxMat");
     const boxType = width === 1 ? "cube" : "semi";
-    boxMat.diffuseTexture = new BABYLON.Texture(`/assets/${boxType}house.png`);
+    boxMat.diffuseTexture = new BABYLON.Texture(`assets/${boxType}house.png`);
 
     // options parameter to set different images on each side
     const faceUV = [];
@@ -236,7 +236,7 @@ const buildBox = (width) => {
 
 const buildRoof = (width) => {
     const roofMat = new BABYLON.StandardMaterial("roofMat");
-    roofMat.diffuseTexture = new BABYLON.Texture("/assets/roof.jpg");
+    roofMat.diffuseTexture = new BABYLON.Texture("assets/roof.jpg");
 
     const roof = BABYLON.MeshBuilder.CreateCylinder("roof", { diameter: 1.3, height: 1.2, tessellation: 3 });
     roof.scaling.x = 0.75;
@@ -253,7 +253,7 @@ const createFountainParticles = () => {
     const particleSystem = new BABYLON.ParticleSystem("particles", 5000);
 
     //Texture of each particle
-    particleSystem.particleTexture = new BABYLON.Texture("/assets/flare.png");
+    particleSystem.particleTexture = new BABYLON.Texture("assets/flare.png");
 
     // Where the particles come from
     particleSystem.emitter = new BABYLON.Vector3(-4, 0.8, -6); // emitted from the top of the fountain

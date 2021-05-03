@@ -1,6 +1,6 @@
 
 export const loadAndAnimateDude = async (scene, shadowGenerator) => {
-    const result = await BABYLON.SceneLoader.ImportMeshAsync("him", "/assets/dude/", "Dude.babylon")
+    const result = await BABYLON.SceneLoader.ImportMeshAsync("him", "assets/dude/", "Dude.babylon")
     const dude = result.meshes[0];
 
     dude.scaling = new BABYLON.Vector3(0.008, 0.008, 0.008);

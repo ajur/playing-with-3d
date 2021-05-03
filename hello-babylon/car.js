@@ -1,6 +1,6 @@
 
 export const loadAndAnimateCar2 = async (scene, shadowGenerator) => {
-    await BABYLON.SceneLoader.ImportMeshAsync("", "/assets/", "car.glb");
+    await BABYLON.SceneLoader.ImportMeshAsync("", "assets/", "car.glb");
 
     const car = scene.getMeshByName("car");
     car.rotation = new BABYLON.Vector3(Math.PI / 2, 0, -Math.PI / 2);
@@ -19,7 +19,7 @@ export const loadAndAnimateCar2 = async (scene, shadowGenerator) => {
 }
 
 export const loadAndAnimateCar = async scene => {
-    await BABYLON.SceneLoader.ImportMeshAsync("", "/assets/", "car.glb");
+    await BABYLON.SceneLoader.ImportMeshAsync("", "assets/", "car.glb");
 
     const car = scene.getMeshByName("car");
     car.rotation = new BABYLON.Vector3(Math.PI / 2, 0, -Math.PI / 2);
@@ -37,7 +37,7 @@ export const loadAndAnimateCar = async scene => {
 }
 
 export const loadCarBabylon = async scene => {
-    await BABYLON.SceneLoader.ImportMeshAsync("", "/assets/", "car.babylon");
+    await BABYLON.SceneLoader.ImportMeshAsync("", "assets/", "car.babylon");
 
     const wheelRB = scene.getMeshByName("wheelRB");
     const wheelRF = scene.getMeshByName("wheelRF");
@@ -68,7 +68,7 @@ const addWheels = (car, scene) => {
     
     //car material
     const wheelMat = new BABYLON.StandardMaterial("wheelMat");
-    wheelMat.diffuseTexture = new BABYLON.Texture("/assets/wheel.png");
+    wheelMat.diffuseTexture = new BABYLON.Texture("assets/wheel.png");
 
     const wheelRB = BABYLON.MeshBuilder.CreateCylinder("wheelRB", {diameter: 0.125, height: 0.05, faceUV: wheelUV});
     wheelRB.material = wheelMat;
@@ -120,7 +120,7 @@ const buildChasis = () => {
 
     //car material
     const carMat = new BABYLON.StandardMaterial("carMat");
-    carMat.diffuseTexture = new BABYLON.Texture("/assets/car.png");
+    carMat.diffuseTexture = new BABYLON.Texture("assets/car.png");
 
     const car = BABYLON.MeshBuilder.ExtrudePolygon("car", {shape: outline, depth: 0.2, faceUV: faceUV, wrap: true});
     car.material = carMat;
