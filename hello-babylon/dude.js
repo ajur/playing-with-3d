@@ -6,8 +6,6 @@ export const loadAndAnimateDude = async (scene, shadowGenerator) => {
     dude.scaling = new BABYLON.Vector3(0.008, 0.008, 0.008);
     dude.position = new BABYLON.Vector3(-6, 0, 0);
     dude.rotate(BABYLON.Axis.Y, BABYLON.Tools.ToRadians(-95), BABYLON.Space.LOCAL);
-
-    const startRotation = dude.rotationQuaternion.clone();  
     
     shadowGenerator.addShadowCaster(dude, true);
 
@@ -22,6 +20,8 @@ const animateWalk = (dude, scene) => {
     let distance = 0;
     let step = 0.015;
     let p = 0;
+
+    const startRotation = dude.rotationQuaternion.clone();  
 
     scene.onBeforeRenderObservable.add(() => {
         dude.movePOV(0, 0, step);

@@ -13,10 +13,10 @@ const createScene = async engine => {
     const scene = new BABYLON.Scene(engine);
 
     /**** Set camera and light *****/
-    // const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 15, new BABYLON.Vector3(0, 0, 0));
+    const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 15, new BABYLON.Vector3(0, 0, 0));
     // const camera = new BABYLON.ArcRotateCamera("camera", Math.PI / 2, Math.PI / 2.5, 150, new BABYLON.Vector3(0, 60, 0));  // attatched to dude
     // camera.upperBetaLimit = Math.PI / 2.2;  // limit camera moving under ground
-    // camera.attachControl(canvas, true);
+    camera.attachControl(canvas, true);
     
     const ambientLight = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 0));
     ambientLight.intensity = 0.05;
