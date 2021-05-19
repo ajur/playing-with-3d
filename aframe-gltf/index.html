@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Model viewer</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
+    <script src="https://unpkg.com/aframe-thumb-controls-component/dist/aframe-thumb-controls-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="ftm" src="ftm.gltf"></a-asset-item>
+      </a-assets>
+      
+      <a-entity id="player" position="2 0 -7" rotation="0 180 0">
+        <!-- camera -->
+        <a-entity id="camera" camera wasd-controls look-controls position="0 1.6 0"></a-entity>
+        <!-- hand controls -->
+        <a-entity id="left-hand"
+                  oculus-touch-controls="hand: left"
+                  blink-controls="collisionEntities: .voxel"></a-entity>
+        <a-entity id="right-hand" 
+                  oculus-touch-controls="hand: right" 
+                  thumb-controls></a-entity>
+      </a-entity>
+      
+      <a-gltf-model src="#ftm" position="0 2 0"></a-gltf-model>
+    </a-scene>
+  </body>
+</html>

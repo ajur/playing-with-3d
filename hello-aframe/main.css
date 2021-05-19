@@ -1,0 +1,17 @@
+.bottom-left-links {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+}
+.bottom-left-links a {
+  display: block;
+  margin: 0.1em;
+  padding: 0.1em 0.5em;
+  background: rgba(255, 255, 255, 0.5);
+  color: #333;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+.bottom-left-links a:hover {
+  background: #fff;
+}

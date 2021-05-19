@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <link href="../main.css" rel="stylesheet">
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
+        <img id="skyTexture" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+        <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+<!--         <audio src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay preload></audio> -->
+      </a-assets>
+      
+      <a-sky src="#skyTexture"></a-sky>
+      <a-plane src="#groundTexture"
+               rotation="-90 0 0" 
+               width="30" 
+               height="30"
+               repeat="10 10"></a-plane>
+      
+      <a-box src="#boxTexture" 
+             position="0 2 -5" 
+             rotation="0 45 45" 
+             scale="2 2 2"
+             animation__position="property: object3D.position.y; to: 2.2; dir: alternate; dur: 2000; loop: true; easing: easeInOutSine"
+             animation__mouseenter="property: scale; to: 2.3 2.3 2.3; dur: 300; startEvents: mouseenter"
+             animation__mouseleave="property: scale; to: 2 2 2; dur: 300; startEvents: mouseleave"
+             animation__clickd="property: object3D.rotation.y; from: 45; to: 405; duration: 500; startEvents: click">
+        <a-sound src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay="true" loop="true"></a-sound>
+      </a-box>
+      
+      <a-entity text="value: Hello, A-Frame!; color: #BBB; align: center"
+                position="0 0.24 -5"
+                scale="10 10 10"></a-entity>
+      
+      
+      <a-light type="ambient" color="#445451"></a-light>
+      <a-light type="point" intensity="2" position="2 4 4"></a-light>
+      
+      <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera>  
+    </a-scene>
+    
+    <div class="bottom-left-links">
+      <a href="../">Back</a>
+    </div>
+  </body>
+</html>

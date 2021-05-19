@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>µMinecraft</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
+    <script src="https://unpkg.com/aframe-thumb-controls-component/dist/aframe-thumb-controls-component.min.js"></script>
+<!--     <script src="./components/random-color.js"></script> -->
+<!--     <script src="./components/snap.js"></script> -->
+<!--     <script src="./components/intersection-spawn.js"></script> -->
+    <script src="./components/voxel-spawner.js"></script>
+    <script src="./components/voxel-remover.js"></script>
+    <script src="./components/color-picker.js"></script>
+    <link href="../main.css" rel="stylesheet">
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+<!--         <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg"> -->
+<!--         <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg"> -->
+        <img id="groundTexture" src="https://cdn.glitch.com/ea5718a0-a732-44ca-859a-f99d8ba72b0d%2FTexturesCom_Grass0129_1_seamless_S.jpg?v=1621406868143">
+        <img id="skyTexture" src="https://cdn.glitch.com/ea5718a0-a732-44ca-859a-f99d8ba72b0d%2F934043.jpg?v=1621289643802">
+        
+<!--         <a-mixin id="voxel"
+                 geometry="primitive: box; height: 0.5; width: 0.5; depth: 0.5"
+                 material="shader: standard"
+                 random-color></a-mixin> -->
+      </a-assets>
+      
+      <a-entity id="player">
+        <!-- camera -->
+        <a-entity id="camera" camera wasd-controls look-controls></a-entity>
+        <!-- hand controls -->
+        <a-entity id="left-hand"
+                  oculus-touch-controls="hand: left"
+                  blink-controls="collisionEntities: .build-on, .voxel"></a-entity>
+        <a-entity id="right-hand" 
+                  oculus-touch-controls="hand: right" 
+                  laser-controls
+                  raycaster="objects: .build-on, .voxel" 
+                  color-picker
+                  voxel-spawner
+                  voxel-remover
+                  thumb-controls></a-entity>
+      </a-entity>
+      
+      <a-sky  id="background" src="#skyTexture" radius="30"></a-sky>
+      
+      <a-cylinder id="ground" class="build-on" src="#groundTexture" radius="32" height="0.1" position="0 -0.05 0" repeat="10 10"></a-cylinder>
+
+    </a-scene>
+    
+    <div class="bottom-left-links">
+      <a href="../">Back</a>
+    </div>
+  </body>
+</html>
