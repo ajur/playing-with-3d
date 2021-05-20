@@ -5,6 +5,7 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
     <script src="https://unpkg.com/aframe-thumb-controls-component/dist/aframe-thumb-controls-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-gltf-helpers/dist/aframe-gltf-helpers.min.js"></script>
   </head>
   <body>
     <a-scene>
@@ -18,13 +19,14 @@
         <!-- hand controls -->
         <a-entity id="left-hand"
                   oculus-touch-controls="hand: left"
-                  blink-controls="collisionEntities: .voxel"></a-entity>
+                  blink-controls="collisionEntities: #ground-part"></a-entity>
         <a-entity id="right-hand" 
                   oculus-touch-controls="hand: right" 
                   thumb-controls></a-entity>
       </a-entity>
       
       <a-gltf-model src="#ftm" position="0 2 0"></a-gltf-model>
+      <a-entity id="ground-part" gltf-part-plus="src: #fmt; part: ground_0; resetPosition: true" position="1.90828 1.99986 3.35867" rotation="-90 0 0" visible="false"></a-entity>
     </a-scene>
   </body>
 </html>
